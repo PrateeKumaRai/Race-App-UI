@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="bodycon">
+    <ion-title color="dark"><b>Add Your Question</b></ion-title>
+    <ion-buttons slot="start" (click)="backToQuizDash()">
+      <ion-back-button color="dark" defaultHref="quizdash"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding class="background"> 
+    <br>
+    <br> 
+  <form name="editForm" #form="ngForm"  (ngSubmit)="addListOfAnswer(form)">
+    <ion-list>
+      <ion-item>
+        <ion-input style="color: black;font-size:100%" placeholder="Enter the Question " name="title"
+          (change)="addQuestions(form)" ngModel required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input style="color: black;font-size:100%" placeholder="Ans 1 " name="ans1"  ngModel required></ion-input>
+        <ion-label></ion-label>
+          <ion-checkbox color="bodycon" slot="start" name="check1" [(ngModel)]="check1" [disabled]="disablecheck1" (ionChange)="dynamicheckbox($event,'check1',form)">
+        </ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-input style="color: black;font-size:100%" placeholder="Ans 2 " name="ans2" ngModel required></ion-input>
+        <ion-label></ion-label>
+          <ion-checkbox color="bodycon" slot="start" name="check2" [(ngModel)]="check2" [disabled]="disablecheck2" (ionChange)="dynamicheckbox($event,'check2',form)">
+        </ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-input style="color: black;font-size:100%" placeholder="Ans 3 " name="ans3" ngModel required></ion-input>
+        <ion-label></ion-label>
+         <ion-checkbox color="bodycon" slot="start" name="check3" [(ngModel)]="check3" [disabled]="disablecheck3" (ionChange)="dynamicheckbox($event,'check3',form)">
+        </ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-input style="color: black;font-size:100%" placeholder="Ans 4 " name="ans4" ngModel required></ion-input>
+          <ion-label></ion-label>
+          <ion-checkbox color="bodycon" slot="start" name="check4" [(ngModel)]="check4" [disabled]="disablecheck4" (ionChange)="dynamicheckbox($event,'check4',form)">
+        </ion-checkbox>
+      </ion-item>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" color="bodycon" type="submit">Submit</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+    <ion-item>
+      <ion-label>Add more questions </ion-label>
+      <ion-icon slot="start" color="bodycon" name="add-circle" [routerLink]="['/','addquestion']" (click)="resetForm(form)"></ion-icon>
+    </ion-item>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </form>  
+</ion-content>

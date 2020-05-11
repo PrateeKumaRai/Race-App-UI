@@ -1,0 +1,32 @@
+<ion-header class="ff">
+  <ion-toolbar color="bodycon">
+    <ion-buttons slot="start">
+      <ion-back-button color="dark" defaultHref="user-details"></ion-back-button>
+    </ion-buttons>
+    <ion-title><b style="color:black; text-align: center; size: 100px; ">&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;User Details</b></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding background">
+  <ion-card>
+    <ion-card-header>
+      <h5 style="text-align: left;">
+        <font face="verdana" color="#4EC2B2"> <b>{{data.empName}} Details</b></font>
+      </h5>
+      <ion-card-title><b style="font-size: 17px;">Name :</b> <span style="font-size: 15px;">&nbsp;<b>{{data.empName}}</b></span></ion-card-title>
+      <ion-card-title><b style="font-size: 17px;">Email :</b> <span style="font-size: 15px;">&nbsp;<b> <a href="mailto:{{data.emailId}}" target="_top">{{data.emailId}}</a></b></span></ion-card-title>
+      <ion-card-title><b style="font-size: 17px;">User Id :</b> <span style="font-size: 15px;">&nbsp;<b>{{data.username}}</b></span></ion-card-title>
+      <ion-card-title><b style="font-size: 17px;">Emp Id :</b> <span style="font-size: 15px;">&nbsp;<b>{{data.empId}}</b></span></ion-card-title>
+      <ion-card-title><b style="font-size: 17px;">Mobile Number :</b> <span style="font-size: 15px;">&nbsp;<b> <a href="tel:+{{data.mobile}}" class="button button-positive">{{data.mobile}}</a></b></span></ion-card-title>
+    
+      <ion-card-title><b style="font-size: 17px;">Whatsapp :</b> <span >&nbsp;
+        <ion-icon name="logo-whatsapp" style="color: green; font-size: 30px;" (click)="sendWhatsapp(data.mobile,data.empName)"></ion-icon></span></ion-card-title>
+<br>
+    <!-- <ion-button (click)="sendWhatsapp(data.mobile,data.empName)">Default</ion-button> -->
+   
+    </ion-card-header>
+
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="bodycon">
+    <ion-title color="dark"><b>Start The Game</b>
+    </ion-title>
+    <ion-buttons slot="start" (click)="backToDash()">
+      <ion-back-button  color="dark" defaultHref="/quizdash" ></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding class="background">
+  <body>
+ <br>
+ <br>
+   
+<form name="editForm" #form="ngForm">
+<button class="circle-button circle-button-bg" ion-button>{{timeLeft}}</button>
+ <div *ngFor="let qustn of quetionlist; index as i">
+  <div *ngIf="i=== qstnIndx">
+  <ion-item>
+    <ion-text>{{qustn.questnDescp}}</ion-text>
+    <!-- <ion-label>{{qustn.questnDescp}}</ion-label>	 -->
+    <!-- <ion-label>{{qustn.questnDescp}}  {{qustn.questionId}}</ion-label> -->
+    <!-- {{i}} -->
+  </ion-item>
+  
+  <div *ngFor="let answer of qustn.answr;index as j">	
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" color="bodycon" id=j >{{answer.description}}</ion-button>
+        </ion-col>
+      </ion-row>
+      </ion-grid>
+  </div>
+   </div>     
+  </div>
+ 
+<!-- <ion-list *ngIf="resultShow === true">
+  <ion-item>    
+    <ion-label>Sumeet</ion-label>
+    <ion-note color="secondary" slot="end">490</ion-note>
+  </ion-item>
+</ion-list> -->
+
+<!-- <ion-button color="tertiary" (click)="loadQuestion(qstnIndx)" [disabled]="disablenext">Next</ion-button> -->
+<div *ngIf="qstnIndx=== quetionlist.length -1">
+  <ion-button color="bodycon" routerLink="./adminshowresult">Show Result</ion-button>
+</div>
+
+   </form>
+  </body> 
+</ion-content>

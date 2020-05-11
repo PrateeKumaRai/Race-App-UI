@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+	<base-config cleartextTrafficPermitted="true">
+		<trust-anchors>
+		<certificates src="system" />
+		</trust-anchors>
+</base-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">localhost</domain>  
+		<domain includeSubdomains="true">35.239.248.250:8085</domain>
+		<domain includeSubdomains="true">35.239.248.250:8086</domain>
+		<domain includeSubdomains="true">35.239.248.250:8082</domain>
+    </domain-config>
+</network-security-config>

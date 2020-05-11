@@ -1,0 +1,29 @@
+ion-grid {
+    border-collapse: collapse;
+  }
+  
+  ion-grid, ion-row, ion-col {
+    border: 1px solid black;
+  }
+ .trd{
+    background-color: cornflowerblue;  
+    text-align: center;
+    font-style: italic;
+  }
+  .trdr{
+    background-color: rgb(158, 189, 248);  
+    text-align: center;
+    font-style:normal;
+    font-size:small;
+  }
+
+  ion-title{
+  
+   
+    color: black;
+}
+
+ion-content.background{
+  
+  --ion-background-color: linear-gradient(to bottom,#b7f1e9 0%,#fff 100%);
+}

@@ -1,0 +1,52 @@
+<html>
+<ion-header class="ff">
+  <ion-toolbar color="bodycon">
+    <ion-buttons slot="start">
+      <ion-back-button color="dark" defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title><b style="color:black; text-align: center; size: 100px; ">&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;Asset  Details</b></ion-title>
+  </ion-toolbar>
+</ion-header>
+<head><style>
+
+.center {
+  margin: auto;
+  width: 50%;
+  size: 50px;
+  padding: 5px;
+}
+</style></head>
+<ion-content class="ion-padding background">
+  <br><br>
+<br>
+<br>
+
+<b style="font-size: 20px;">User</b>
+
+<br>
+<div class="btmSpace">
+  <p  (click)="loadAsset()" class="button1 instagram"  ><span class="gradient"></span>Get User Asset</p>
+  </div>
+
+      <div class="btmSpace">
+        <p  (click)="addAsset()" class="button1 instagram"  ><span class="gradient"></span>Add User Asset</p>
+        </div>
+
+
+      <div class="btmSpace">
+        <p  (click)="updateAsset()" class="button1 instagram"  ><span class="gradient"></span>Update User Asset</p>
+        </div><br>
+        <b style="font-size: 20px;">Admin</b><br>
+        <div class="btmSpace">
+          <p  (click)="loadAllAsset()" class="button1 instagram"  ><span class="gradient"></span>Get All Asset</p>
+          </div>
+        
+      <div class="btmSpace">
+        <p  (click)="SearchAsset()" class="button1 instagram"  ><span class="gradient"></span>Search</p>
+        </div>
+
+
+
+   </ion-content>
+   </html>

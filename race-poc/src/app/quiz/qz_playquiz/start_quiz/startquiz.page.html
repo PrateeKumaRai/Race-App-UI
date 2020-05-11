@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="bodycon">
+    <ion-title color="dark"><b>Start The Game</b>             
+    </ion-title>
+    <ion-buttons slot="start" (click)="backToQuiz()">
+      <ion-back-button color="dark" defaultHref="/quiz"></ion-back-button>      
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding class="background">
+ <br>
+ <br>  
+<form name="editForm" #form="ngForm">
+  <button *ngIf="true === showTimer" class="circle-button circle-button-bg" ion-button>{{timeLeft}}</button>  
+  <span style="float: right;">
+    <b>{{playerName}}</b>
+  </span>
+  
+  <!-- {{qstnIndx}} -->
+<div *ngIf="qstnIndx >= 0">
+ <div *ngFor="let qustn of quetionlist; index as i">   
+   <div *ngIf="i=== qstnIndx && '' != qustn.questnDescp">
+  <ion-item>
+    <ion-text>{{qustn.questnDescp}}</ion-text>	
+    <!-- <ion-label>{{qustn.questnDescp}}  {{qustn.questionId}}</ion-label> -->
+    <!-- {{i}} -->
+  </ion-item>
+  <div *ngFor="let answer of qustn.answr;index as j">	  
+    <!-- <ion-text color="dark">
+      {{answer.description}}  {{answer.isTrueAnswr}}
+    </ion-text> -->
+    
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" color="bodycon" id=j  (click)="savePlayquiz(form,answer.description,answer.isTrueAnswr,qustn.answr,j,qustn.questionId)" [disabled]="disableanwr">{{answer.description}}</ion-button>
+        </ion-col>
+      </ion-row>
+      </ion-grid>
+  </div>
+   </div>     
+  </div>
+</div> 
+
+<!-- <ion-button color="tertiary" (click)="loadQuestion(qstnIndx)" [disabled]="disablenext">Next</ion-button> -->
+   </form>
+   <span *ngIf="true === wlcomeShowMsg" style="text-align: center;">
+    <h1 style="font-style: italic;"><b>You're in!</b></h1>
+    <h6><b>see your nickname on screen?</b></h6>    
+  </span>      
+</ion-content>

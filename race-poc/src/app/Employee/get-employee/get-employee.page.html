@@ -1,0 +1,77 @@
+<ion-header class="ff">
+  <ion-toolbar color="bodycon">
+    <ion-buttons slot="start">
+      <ion-back-button color="dark" defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title><b style="color:black; text-align: center; size: 100px; ">&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;Available Seat</b></ion-title>
+  </ion-toolbar>
+</ion-header>
+<html>
+
+<head>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+</head>
+
+<ion-content class="ion-padding background">
+  <!-- <ion-list>
+    <button ion-item *ngFor="let employee of emplList">
+      {{ employee.emailId}} ,{{employee.cubicalLocation}}
+    </button>  
+  </ion-list> -->
+  
+  <table>
+    <tr>
+      <th>Seat</th>
+      <th>Location</th>
+      <th>Floor</th>
+      <th> </th>
+    </tr>
+    <tr *ngFor="let employee of emplList">
+      <td>{{employee.cubicalNumber}}</td>
+      <td>{{employee.cubicalLocation}}</td>
+      <td>{{employee.floor}}</td>
+      <td>
+        <ion-button size="small" color="warning" (click)="updateSeatAfterBooking(employee)">Book</ion-button>
+      </td>
+    </tr>
+  </table>
+</ion-content>
+
+</html>
+<!-- <div class="row">
+    <div class="column" style="background-color:#ccfff5;" *ngFor="let employee of emplList">
+      <p style="color: black; font-size: 15px;"><b>{{ employee.emailId}} ,{{employee.cubicalLocation}}</b></p>
+    </div>
+    -->
+
+
+
+
+
+
+<!-- <ion-content>
+  <ion-list inset *ngFor="let employee of emplList">
+    <ion-thumbnail item-start>
+    <p>{{employee.emailId}} &nbsp; {{employee.cubicalLocation}}</p>
+    </ion-thumbnail>
+</ion-list> 
+</ion-content>     -->
+<!-- <ion-button  size="large" color="success" (click)="updateSeat(employee)"><b>{{employee}} <br><b style="color:blue ;" >Book</b></b></ion-button> -->

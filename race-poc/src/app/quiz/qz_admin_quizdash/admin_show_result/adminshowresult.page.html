@@ -1,0 +1,82 @@
+<ion-header >
+  <ion-toolbar color="bodycon">
+    <ion-title color="dark"><b>Show Result</b>
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button  color="dark" defaultHref="quizdash"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <body>
+  <!-- <div *ngFor="let item of testObject | keyvalue: originalOrder; let i=index">
+    <span *ngIf="i<3">
+      Key: <b>{{item.key}}</b> and Value: <b>{{item.value}}</b>
+      
+    </span>   
+  </div> -->
+  
+<div class="pyro">
+  <div class="before"></div>
+   <a>
+    <svg width="200" height="200"> 
+         <defs>
+          <clipPath id="circleView1">
+            <rect x="20" y="20" rx="20" ry="20" width="200" height="150"
+            style="fill:#9179d9;stroke:black;stroke-width:5;opacity:0.5" />         
+          </clipPath>
+        </defs>
+         <image  width="200" height="100" xlink:href="assets\icon\second_winner.png"  clip-path="url(#circleView1)"/>
+
+    Sorry, your browser does not support inline SVG.
+    <text x="70" y="120" fill="white">{{secondPlyrName}}</text>
+    <text x="75" y="145" fill="white">{{secondPlyrScore}}</text>          
+    <text x="65" y="190" fill="black">Second</text>
+    </svg>
+    
+    
+    <svg width="200" height="250" >
+      <!-- <rect x="20" y="20" rx="20" ry="20" width="100" height="180"
+         style="fill:#9179d9;stroke:black;stroke-width:5;opacity:0.5" /> -->
+         <defs>
+          <clipPath id="circleView">
+            <rect x="20" y="20" rx="20" ry="20" width="200" height="180"
+            style="fill:#9179d9;stroke:black;stroke-width:5;opacity:0.5" />           
+          </clipPath>
+        </defs>
+         <image  width="200" height="100" xlink:href="assets\icon\first_winner.png"  clip-path="url(#circleView)"/>
+             Sorry, your browser does not support inline SVG.
+    <text x="70" y="120" fill="white">{{firstPlyrName}}</text>
+    <text x="75" y="150" fill="white">{{firstPlyrScore}}</text>
+    <text x="80" y="215" fill="black">First</text>
+    </svg>
+    
+  
+ 
+    <svg width="200" height="180">
+         <defs>
+          <clipPath id="circleView2">
+            <rect x="20" y="20" rx="20" ry="20" width="200" height="130"
+            style="fill:#9179d9;stroke:black;stroke-width:5;opacity:0.5" />       
+          </clipPath>
+        </defs>
+         <image  width="200" height="100" xlink:href="assets\icon\third_winner.png"  clip-path="url(#circleView2)"/>
+
+    Sorry, your browser does not support inline SVG.
+    <text x="80" y="120" fill="white">{{thirdPlyrName}}</text>
+    <text x="80" y="145" fill="white">{{thirdPlyrScore}}</text>       
+    <text x="73" y="180" fill="black">Third</text>
+    </svg>
+    </a> 
+  <div class="after"></div>
+</div>
+     
+      <!-- <div id="container">
+
+      </div> -->
+  
+
+  </body>
+</ion-content>
+

@@ -1,0 +1,69 @@
+<ion-header class="ff">
+  <ion-toolbar color="bodycon">
+    <ion-buttons slot="start">
+      <ion-back-button color="dark" defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title><b style="color:black; text-align: center; size: 100px; ">&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;Seat Visualization</b></ion-title>
+  </ion-toolbar>
+</ion-header>
+<html>
+
+<head>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+</head>
+
+<ion-content class="ion-padding background">  
+  <br><br><br><br>
+<div class="btmSpace ">
+  <p [routerLink]="['/','add-employee']" class="button1 instagram"  ><span class="gradient"></span>Update Seat Status</p>
+  </div>
+  <br>
+  <div class="btmSpace ">
+    <p  (click)="loadAll()" class="button1 instagram"  ><span class="gradient"></span>Get Available Seat</p>
+    </div>
+    <br>
+    <div class="btmSpace ">
+      <p  (click)="unbookSeat()" class="button1 instagram"  ><span class="gradient"></span>Get Booked Seat</p>
+      </div>
+  <br> <br>
+
+      <table>
+        <tr style="display:none;">
+          <th style="display:none;">Seat</th>
+          <th style="display:none;">Email</th>
+         
+          <th> </th>
+        </tr>
+        <tr *ngIf="data !=null">
+          <td ></td>
+          <td>{{data.seatNumberTemp}}</td>
+          <td style="display:none;">{{data.seatMailId}}</td>
+          <td ></td>
+          <td ></td>
+          <td ></td><td ></td><td ></td><td ></td><td ></td><td ></td>
+          <td>
+            <ion-button size="small" color="warning" (click)="unbookSeatAfterBooking(data)">Unbook</ion-button>
+          </td>
+        </tr>
+      </table>
+</ion-content>
+
+</html>

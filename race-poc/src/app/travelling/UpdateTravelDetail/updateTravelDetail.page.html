@@ -1,0 +1,148 @@
+<ion-header>
+  <ion-toolbar color="bodycon">
+    <ion-buttons  slot="start">
+      <ion-back-button color="dark" defaultHref="travelling"></ion-back-button>
+    </ion-buttons>
+      <ion-title>Update Travel Details</ion-title>
+    </ion-toolbar>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  </ion-header>
+ 
+<ion-content class="ion-padding background" >
+ 
+  <form  name="editForm" [formGroup]="myForm" #form="ngForm" (ngSubmit)="updateTravelDetail(myForm.value,myForm)">
+  
+    <ion-list>
+      <ion-item>
+        <ion-label><b style="color: black;font-size:110%">Employee ID:</b> </ion-label>
+        <ion-input name="employee_id" formcontrolname="employee_id"  [ngModelOptions]="{standalone: true}" ngModel="{{userEntity.empId}}" ></ion-input>
+      </ion-item>
+      <div>
+        
+        <ion-item>
+          <ion-label position="fixed"><b style="color: black;font-size:100%">Travel ID: </b></ion-label>
+          <ion-select (click)=" getEmployeeID()" (ionChange)=" onOptionsSelected(travelId.value)" #travelId  [(ngModel)]="travelID"  required
+          name="travelID" placeholder="Select travelID" formControlName="travelID"  >
+          <ion-select-option  [value]="Select">Select</ion-select-option >
+            <div *ngIf="flag1">
+            <ion-select-option *ngFor="let travelId of travelIds" [value]="travelId" >{{travelId}}</ion-select-option>
+          </div>
+          <div *ngIf="flag2">
+            <ion-select-option *ngFor="let travelId of travelIds" [value]="travelId" >{{travelId}}</ion-select-option>
+          </div>
+          </ion-select>
+        </ion-item>
+      </div>
+      <div *ngIf="show">
+      <ion-item>
+        <ion-label position="fixed" ><b style="color: black;font-size:100%">Start Date:</b></ion-label  >
+          <ion-datetime displayFormat="MM/DD/YYYY" name="start_date"  Type="Date" placeholder=" Enter Start Date" formControlName="start_date"   ngModel="{{traveldetail?.start_date}}" ></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="fixed" ><b style="color: black;font-size:100%">Return Date:</b></ion-label  >
+        <ion-datetime displayFormat="MM/DD/YYYY" formControlName="return_date"  name="return_date"  Type="Date" placeholder=" Enter Return Date"  ngModel="{{traveldetail?.return_date}}" ></ion-datetime>
+      </ion-item>
+
+<ion-item>
+      <ion-label position="fixed"><b style="color: black;font-size:100%">Source : </b></ion-label>
+    </ion-item>
+   
+   <ion-item>
+         <ion-searchbar [(ngModel)]="searchCntyTerm" formControlName="searchCntyTerm" (ionChange)="setFilteredItemscountry()" 
+          placeholder="Country" > 
+          </ion-searchbar>
+          <ion-searchbar [(ngModel)]="searchcityTerm" formControlName="searchcityTerm" (ionChange)="setFilteredItemscity()" 
+          placeholder="City"> 
+          </ion-searchbar>
+
+    </ion-item>
+		 <ion-item>
+        
+          <ion-select (click)="loadCountry(myForm)" (ionChange)="loadCity($event)" #sta name="src_country" [(ngModel)]="src_country" required
+          formControlName="src_country" placeholder="Select Country">
+          <div *ngIf="optionShow1">        
+          <ion-select-option  *ngFor="let sta of items" [value]="sta">{{sta}}</ion-select-option>
+        </div>
+        <div *ngIf="optionShow2">
+          <ion-select-option  *ngFor="let sta of items4" [value]="sta">{{sta}}</ion-select-option>
+        </div>
+        </ion-select>
+
+        <ion-select (click)="loadCites()" #sta name="selectedSrcState" [(ngModel)]="selectedSrcState" required
+          formControlName="selectedSrcState" placeholder="Select City">
+          <div *ngIf="optionShow3">
+          <ion-select-option *ngFor="let sta of cities" [value]="sta">{{sta}}</ion-select-option>
+          </div>
+          <div *ngIf="optionShow4">
+          <ion-select-option *ngFor="let sta of city4" [value]="sta">{{sta}}</ion-select-option>
+          </div>
+        </ion-select>
+      </ion-item>
+		<ion-item>
+		<ion-input name="selectedSrcCntry1" formcontrolname="selectedSrcCntry1"  [ngModelOptions]="{standalone: true}" clearInput type="text" placeholder=" Enter Selected Country" readonly="true"  ngModel="{{src_country}}"></ion-input>
+		<ion-input name="selectedSrcState1" formcontrolname="selectedSrcState1"  [ngModelOptions]="{standalone: true}" clearInput type="text" placeholder=" Enter Selected City" readonly="true"  ngModel="{{selectedSrcState}}"></ion-input>
+		</ion-item>
+
+
+          
+<ion-item>
+        <ion-label position="fixed"><b style="color: black;font-size:100%">Destination: </b></ion-label>
+      </ion-item>
+      
+    <ion-item>
+      <ion-searchbar [(ngModel)]="searchCntyTerm1" formControlName="searchCntyTerm1" (ionChange)="setFilteredItemscountry1()" 
+      placeholder="Country" > 
+      </ion-searchbar>
+      <ion-searchbar [(ngModel)]="searchcityTerm1" formControlName="searchcityTerm1" (ionChange)="setFilteredItemscity1()" 
+      placeholder="City" > 
+      </ion-searchbar>
+        </ion-item>
+		
+		   <ion-item>  
+		   <ion-select (click)="loadCountry(myForm)" (ionChange)="loadCity($event)" #sta name="dest_country" [(ngModel)]="dest_country" required
+          formControlName="dest_country" placeholder="Select Country">
+          <div *ngIf="optionShow5">        
+          <ion-select-option  *ngFor="let sta of items5" [value]="sta">{{sta}}</ion-select-option>
+        </div>
+        <div *ngIf="optionShow6">
+          <ion-select-option  *ngFor="let sta of items4" [value]="sta">{{sta}}</ion-select-option>
+        </div>
+        </ion-select>
+	  
+	  <ion-select (click)="loadCites()" #sta name="selectedDstState" [(ngModel)]="selectedDstState" required
+          formControlName="selectedDstState" placeholder="Select City">
+          <div *ngIf="optionShow7">
+          <ion-select-option *ngFor="let sta of city5" [value]="sta">{{sta}}</ion-select-option>
+          </div>
+          <div *ngIf="optionShow8">
+          <ion-select-option *ngFor="let sta of city4" [value]="sta">{{sta}}</ion-select-option>
+          </div>
+        </ion-select>  
+		</ion-item>
+		
+
+ <ion-item>
+ <ion-input name="selectedDstCntry1" clearInput type="text" formcontrolname="selectedDstCntry1"  [ngModelOptions]="{standalone: true}" placeholder=" Enter Selected Satate" readonly="true"  ngModel="{{dest_country}}"></ion-input>
+ <ion-input name="selectedDstState1" clearInput type="text" formcontrolname="selectedDstState1"  [ngModelOptions]="{standalone: true}" placeholder=" Enter Selected Satate" readonly="true"  ngModel="{{selectedDstState}}"></ion-input>
+ </ion-item>
+
+            <ion-item>
+              <ion-label><b style="color: black;font-size:110%">Mobile No:</b> </ion-label>
+              <ion-input  name="mob_num"  formControlName="mob_num" type="text" clearInput placeholder=" Enter Mobile Number"  ngModel="{{traveldetail?.mob_num}}"></ion-input>
+            </ion-item>
+      
+            <br>
+            <ion-row right>  
+              <ion-col class="ion-text-right" >
+        <ion-button  value ="update" size="large" color="bodycon" type="submit">Update</ion-button>
+      </ion-col>
+      <ion-col class="ion-text-left" >
+        <ion-button value ="delete" color="bodycon" name="d1" size="large" (click)="deleteTravelDetail(myForm)">Delete</ion-button>
+      </ion-col>
+      </ion-row>
+      </div>
+    </ion-list>
+  </form>
+
+</ion-content>

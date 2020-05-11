@@ -1,0 +1,55 @@
+<ion-header class="ff">
+  <ion-toolbar color="bodycon">
+    <ion-buttons slot="start">
+      <ion-back-button color="dark" defaultHref="quiz"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="dark"><b>My Quiz Dashboard</b></ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding class="background">
+    <br>
+    <br> 
+
+  <ion-chip *ngFor="let qz of quiz">
+    <button ion-button (click)="publishQuiz(qz.quizId);" [disabled]="qz.pin!== ''">
+    <ion-label color="secondary">{{'Title ::' + qz.title}}<br>{{'Pin ::' + qz.pin}}</ion-label>
+    </button>
+    <!-- 
+      <ion-icon ios="ios-bulb" md="md-bulb"></ion-icon>
+    </button> -->
+  </ion-chip>
+  <ion-list>
+
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <ion-fab vertical="center" horizontal="center" slot="fixed">
+      <ion-fab-button size="small" color="bodycon">
+        <ion-icon name="add" routerLink="../createquiz"></ion-icon>
+      </ion-fab-button>
+      <ion-label>Create</ion-label>
+    </ion-fab>
+    <br>
+    <br>
+    <br>
+
+    <form name="editForm" #form="ngForm" (ngSubmit)="getQuizByPin(form)">
+    <ion-item>
+      <ion-input style="color: black;font-size:100%" placeholder="Enter Game pin " name="pin" ngModel (keypress)="numberOnly($event)" required></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" color="bodycon" type="submit">Start Game</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+
+  </ion-list>
+</ion-content>

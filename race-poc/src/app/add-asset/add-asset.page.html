@@ -1,0 +1,171 @@
+<ion-header class="ff">
+  <ion-toolbar color="bodycon">
+    <ion-buttons slot="start">
+      <ion-back-button color="dark" defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title><b style="color:black; text-align: center; size: 100px; ">&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;ADD ASSETS</b></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  body {font-family: Arial, Helvetica, sans-serif;}
+  * {box-sizing: border-box;}
+  
+  .input-container {
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+
+  .bottom-container {
+    text-align: center;
+    background-color: #0477A4;
+    border-radius: 0px 0px 4px 4px;
+  }
+  
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+  }
+  
+  
+  .icon {
+    padding: 10px;
+    background:linear-gradient(to bottom, #33ccff 0%, #00cc99 100%);
+    color: black;
+    min-width: 50px;
+    text-align: center;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+  }
+  
+  .div1 {
+    padding: 5px;
+    border: 1px solid #0477A4;
+  }
+  
+  .input-field:focus {
+    border: 2px solid #0477A4;
+  }
+  
+ 
+  .btn {
+    background:linear-gradient(to bottom, #33ccff 0%, #00cc99 100%);
+    color: black;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  
+  }
+  
+  
+  .btn1 {
+    background-color:white;
+    color:#D44638;
+    width: 100%;
+    padding: 15px 20px;
+    border: none;
+  
+    width: 100%;
+    opacity: 0.9;
+  }
+  
+  .btn:hover {
+    opacity: 1;
+  }
+  </style>
+</head>
+
+
+  <ion-content class="ion-padding background">
+  <!-- <form (submit)="addAsset()"> -->
+    <!-- <ion-button size="large" type="submit" >Submit</ion-button> -->
+    <form [formGroup]="myForm" form="ngForm" (ngSubmit)="addAsset(myForm.value)">
+
+      <ion-list>
+
+  <ion-item>
+    <ion-input placeholder="Asset Number" type="text" formControlName="assetNumber" [(ngModel)]="account.assetNumber" name="assetNumber"></ion-input>
+  </ion-item>
+  <div class="validation-errors">
+    <ng-container *ngFor="let validation of validation_messages.assetNumber">
+      <div class="error-message" *ngIf="myForm.get('assetNumber').hasError(validation.type) && (myForm.get('assetNumber').dirty || myForm.get('assetNumber').touched)">
+        <b style="color:rgb(247, 18, 18);font-size:110%"> {{ validation.message }}</b>
+      </div>
+    </ng-container>
+  </div>
+
+  <br>
+  <ion-item>
+    <ion-label>Assert Type</ion-label>
+    <ion-select [(ngModel)]="account.assetType"  [ngModelOptions]="{standalone: true}">
+      <ion-select-option value="1">Laptop</ion-select-option>
+      <ion-select-option value="2">Desktop</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <br>
+  <ion-item>
+    <ion-input placeholder="Asset Model" type="text" formControlName="assetModel" [(ngModel)]="account.assetModel" name="assetModel"></ion-input>
+  </ion-item>
+  <div class="validation-errors">
+    <ng-container *ngFor="let validation of validation_messages.assetModel">
+      <div class="error-message" *ngIf="myForm.get('assetModel').hasError(validation.type) && (myForm.get('assetModel').dirty || myForm.get('assetModel').touched)">
+        <b style="color:rgb(247, 18, 18);font-size:110%"> {{ validation.message }}</b>
+      </div>
+    </ng-container>
+  </div>
+
+
+  <br>
+  <ion-item>
+    <ion-input placeholder="Asset Owner" type="text" formControlName="assetOwner" [(ngModel)]="account.assetOwner" name="assetOwner"></ion-input>
+  </ion-item>
+  <div class="validation-errors">
+    <ng-container *ngFor="let validation of validation_messages.assetOwner">
+      <div class="error-message" *ngIf="myForm.get('assetOwner').hasError(validation.type) && (myForm.get('assetOwner').dirty || myForm.get('assetOwner').touched)">
+        <b style="color:rgb(247, 18, 18);font-size:110%"> {{ validation.message }}</b>
+      </div>
+    </ng-container>
+  </div>
+<br>
+  <ion-item>
+    <ion-input placeholder="CI Desccription" type="text" formControlName="ciDesccription" [(ngModel)]="account.ciDesccription" name="ciDesccription"></ion-input>
+  </ion-item>
+  <div class="validation-errors">
+    <ng-container *ngFor="let validation of validation_messages.ciDesccription">
+      <div class="error-message" *ngIf="myForm.get('ciDesccription').hasError(validation.type) && (myForm.get('ciDesccription').dirty || myForm.get('ciDesccription').touched)">
+        <b style="color:rgb(247, 18, 18);font-size:110%"> {{ validation.message }}</b>
+      </div>
+    </ng-container>
+  </div>
+
+  <br>
+  <ion-input type="hidden" name="empId" ngModel={{data1.empId}}  readonly="true"  [ngModelOptions]="{standalone: true}"></ion-input>
+  <!-- <ion-input  type="hidden" [(ngModel)]="account.empId" name="empId" [ngModelOptions]="{standalone: true}"></ion-input> -->
+  <div text-center margin-top>
+    <!-- <ion-button size="normal" color="tertiary" type="submit" >Submit</ion-button> -->
+
+    <button class="btn"  type="submit" ><b style="font-size: large;">Submit</b></button>    
+  </div>
+</ion-list>
+</form>
+</ion-content>
+</html>

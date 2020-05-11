@@ -1,0 +1,25 @@
+<ion-header class="ff">
+    <ion-toolbar color="bodycon">
+    <ion-buttons slot="start">
+      <ion-back-button color="dark" defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title><b>Travel</b></ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding class="background">
+
+  <br>
+  
+
+  <div class="btmSpace ">
+    <p [routerLink]="['/','create']" class="button1 instagram"><span class="gradient"></span>Travel Entry</p>
+    </div>
+    <div class="btmSpace">
+      <p [routerLink]="['/','findTravelDetail']" class="button1 instagram"><span class="gradient"></span>Search Travel</p>
+      </div>
+      
+      <div class="btmSpace">
+      <p [routerLink]="['/','updateTravelDetail']" (click)=travelDetailsByEmpId() class="button1 instagram"><span class="gradient"></span>Update Travel</p>
+      </div>
+
+</ion-content>

@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="bodycon">
+    <ion-buttons slot="start">
+      <ion-back-button color="dark" defaultHref="findTravelDetail"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Travel Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="background">
+  <div *ngFor="let item of data">
+    <ion-card>
+      <ion-row>
+        <ion-title size="small"><b>Travel ID:</b>{{item .travel_id}}</ion-title>
+      </ion-row>
+      <ion-row>
+        <ion-title size="small"><b>Employe ID:</b>{{item .employee_id}}</ion-title>
+      </ion-row>
+      <ion-row>
+        <ion-title size="small"><b>Start Date:</b>{{item .start_date}}</ion-title>
+      </ion-row>
+      <ion-row>
+        <ion-title size="small"><b>Return Date:</b>{{item .return_date}}</ion-title>
+      </ion-row>
+      <ion-row>
+        <ion-title size="small"><b>Source Location:</b>{{item .source_location}}</ion-title>
+      </ion-row>
+      <ion-row>
+        <ion-title size="small"><b>Destination Location:</b>{{item .dest_location}}</ion-title>
+      </ion-row>
+      <ion-row>
+        <ion-title size="small"><b>Mobile Number:</b>{{item.mob_num}}</ion-title>
+      </ion-row>
+      <ion-row>
+
+        <div>
+          <div *ngIf=item.imgPic>
+            <img [src]=item.imgPic>
+          </div>
+        </div>
+      </ion-row>
+
+    </ion-card>
+  </div>
+</ion-content>

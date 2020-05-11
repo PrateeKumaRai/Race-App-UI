@@ -1,0 +1,199 @@
+<ion-header class="ff">
+  <ion-toolbar color="bodycon">
+    <ion-buttons slot="start">
+      <ion-back-button color="dark" defaultHref="travelling"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Create Travel</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding background">
+
+  <form name="editForm" [formGroup]="myForm" #form="ngForm" (ngSubmit)="createTravelDetail(myForm.value,myForm)">
+
+    <ion-list>
+      <ion-item>
+        <ion-label><b style="color:black;font-size:110%">Employee ID:</b> </ion-label>
+        <ion-input name="employee_id" formcontrolname="employee_id" [ngModelOptions]="{standalone: true}" ngModel="{{userEntity.empId}}"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="fixed"><b style="color: black;font-size:100%">Start Date:</b></ion-label>
+        <ion-datetime (click)="statdateReq()" (ionChange)=" onOptionsSelected()" min="{{minDate}}" max="{{maxDate}}"
+          formControlName="start_date" displayFormat="MM/DD/YYYY" name="start_date" Type="Date"
+          placeholder=" Enter Start Date"></ion-datetime>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.start_date">
+          <div class="error-message"
+            *ngIf="myForm.get('start_date').hasError(validation.type) && (myForm.get('start_date').dirty || myForm.get('start_date').touched)">
+            <b style="color:rgb(247, 18, 18);font-size:110%"> {{ validation.message }}</b>
+          </div>
+        </ng-container>
+      </div>
+      <div class="validation-errors" *ngIf="show">
+
+        <div class="error-message"
+          *ngIf="myForm.hasError('dateless') && (myForm.hasError('dateless').dirty || myForm.touched)">
+          <b style="color:rgb(247, 18, 18);font-size:110%"> start Date should be currentdate or future date </b>
+        </div>
+
+      </div>
+
+
+      <ion-item>
+        <ion-label position="fixed"><b style="color: black;font-size:100%">Return Date:</b></ion-label>
+        <ion-datetime (click)="statdateReq()" (ionChange)=" onOptionsSelected1()" min="{{minDa}}" max="{{maxDate}}"
+          formControlName="return_date" displayFormat="MM/DD/YYYY" name="return_date" Type="Date"
+          placeholder=" Enter Return Date"></ion-datetime>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.return_date">
+          <div class="error-message"
+            *ngIf="myForm.get('return_date').hasError(validation.type) && (myForm.get('return_date').dirty || myForm.get('return_date').touched)">
+            <b style="color:rgb(247, 18, 18);font-size:110%"> {{ validation.message }}</b>
+          </div>
+        </ng-container>
+      </div>
+      <div class="validation-errors" *ngIf="show1">
+
+        <div class="error-message"
+          *ngIf="myForm.hasError('dateless1') && (myForm.hasError('dateless1').dirty || myForm.touched)">
+          <b style="color:rgb(247, 18, 18);font-size:110%"> return date should be greater than start date </b>
+        </div>
+
+      </div>
+      <div class="validation-errors" *ngIf="stdatreq">
+
+        <div class="error-message"
+          *ngIf="myForm.hasError('dateless') && (myForm.hasError('dateless').dirty || myForm.touched)">
+          <b style="color:rgb(247, 18, 18);font-size:110%"> select Start date first </b>
+        </div>
+
+      </div>
+      <ion-item>
+      <ion-label position="fixed"><b style="color: black;font-size:100%">Source : </b></ion-label>
+    </ion-item>
+  <ion-item>
+      <ion-searchbar [(ngModel)]="searchCntyTerm" formControlName="searchCntyTerm" (ionChange)="setFilteredItemscountry()" 
+          placeholder="Country"> 
+          </ion-searchbar>
+          <ion-searchbar [(ngModel)]="searchcityTerm" formControlName="searchcityTerm" (ionChange)="setFilteredItemscity()" 
+          placeholder="City"> 
+          </ion-searchbar>
+
+      </ion-item>
+        <ion-item>
+        
+          <ion-select (click)="loadCountry()" (ionChange)="loadCity($event)" #sta name="src_country" [(ngModel)]="src_country" required
+          formControlName="src_country" placeholder="Select Country">
+          <div *ngIf="optionShow1">        
+          <ion-select-option  *ngFor="let sta of items" [value]="sta">{{sta}}</ion-select-option>
+        </div>
+        <div *ngIf="optionShow2">
+          <ion-select-option  *ngFor="let sta of items4" [value]="sta">{{sta}}</ion-select-option>
+        </div>
+        </ion-select>
+
+        <ion-select (click)="loadCites()" #sta name="selectedSrcState" [(ngModel)]="selectedSrcState" required
+          formControlName="selectedSrcState" placeholder="Select City">
+          <div *ngIf="optionShow3">
+          <ion-select-option *ngFor="let sta of cities" [value]="sta">{{sta}}</ion-select-option>
+          </div>
+          <div *ngIf="optionShow4">
+          <ion-select-option *ngFor="let sta of city4" [value]="sta">{{sta}}</ion-select-option>
+          </div>
+        </ion-select>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.selectedSrcState">
+          <div class="error-message"
+            *ngIf="myForm.get('selectedSrcState').hasError(validation.type) && (myForm.get('selectedSrcState').dirty || myForm.get('selectedSrcState').touched)">
+            <b style="color:rgb(247, 18, 18);font-size:110%"> {{ validation.message }}</b>
+          </div>
+        </ng-container>
+      </div>
+        
+      <ion-item>
+        <ion-label position="fixed"><b style="color: black;font-size:100%">Destination: </b></ion-label>
+      </ion-item>
+      
+    <ion-item>
+      <ion-searchbar [(ngModel)]="searchCntyTerm1" formControlName="searchCntyTerm1" (ionChange)="setFilteredItemscountry1()" 
+      placeholder="Country"> 
+      </ion-searchbar>
+      <ion-searchbar [(ngModel)]="searchcityTerm1" formControlName="searchcityTerm1" (ionChange)="setFilteredItemscity1()" 
+      placeholder="City"> 
+      </ion-searchbar>
+        </ion-item>
+ 
+ 
+      <ion-item>
+        
+		  
+		   <ion-select (click)="loadCountry()" (ionChange)="loadCity($event)" #sta name="dest_country" [(ngModel)]="dest_country" required
+          formControlName="dest_country" placeholder="Select Country">
+          <div *ngIf="optionShow5">        
+          <ion-select-option  *ngFor="let sta of items5" [value]="sta">{{sta}}</ion-select-option>
+        </div>
+        <div *ngIf="optionShow6">
+          <ion-select-option  *ngFor="let sta of items4" [value]="sta">{{sta}}</ion-select-option>
+        </div>
+        </ion-select>
+	  
+	  <ion-select (click)="loadCites()" #sta name="selectedDstState" [(ngModel)]="selectedDstState" required
+          formControlName="selectedDstState" placeholder="Select City">
+          <div *ngIf="optionShow7">
+          <ion-select-option *ngFor="let sta of city5" [value]="sta">{{sta}}</ion-select-option>
+          </div>
+          <div *ngIf="optionShow8">
+          <ion-select-option *ngFor="let sta of city4" [value]="sta">{{sta}}</ion-select-option>
+          </div>
+        </ion-select>      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.selectedDstState">
+          <div class="error-message"
+            *ngIf="myForm.get('selectedDstState').hasError(validation.type) && (myForm.get('selectedDstState').dirty || myForm.get('selectedDstState').touched)">
+            <b style="color:rgb(247, 18, 18);font-size:110%"> {{ validation.message }}</b>
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item>
+        <ion-label><b style="color: black;font-size:110%">Mobile No:</b> </ion-label>
+        <ion-input formControlName="mob_num" name="mob_num" type="text" clearInput placeholder=" Enter Mobile Number"
+          required></ion-input>
+      </ion-item>
+
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.mob_num">
+          <div class="error-message"
+            *ngIf="myForm.get('mob_num').hasError(validation.type) && (myForm.get('mob_num').dirty || myForm.get('mob_num').touched)">
+            <b style="color:rgb(247, 18, 18);font-size:110%"> {{ validation.message }}</b>
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item>
+        <ion-label position="fixed"><b style="color: black;font-size:100%">Image: </b></ion-label>
+        <ion-input color="bodycon" formControlName="image" type="file" accept="image/*" (change)="changeListener($event)"></ion-input>
+      </ion-item>
+
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.image">
+          <div class="error-message"
+            *ngIf="myForm.get('image').hasError(validation.type) && (myForm.get('image').dirty || myForm.get('image').touched)">
+            <b style="color:rgb(247, 18, 18); font-size:110%"> {{ validation.message }}</b>
+          </div>
+        </ng-container>
+      </div>
+
+      <br>
+      <ion-row right>
+        <ion-col text-right>
+          <ion-button color="bodycon" size="large" type="submit">Submit</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+  </form>
+
+</ion-content>

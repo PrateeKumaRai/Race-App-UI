@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar color="bodycon">
+    <ion-title color="dark"><b>Admin Dashboard</b>
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button color="dark" defaultHref="quizdash"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding class="background">
+    <form name="editForm" #form="ngForm">
+      <br>
+      <div style="padding-left:117px;background-color:white">Join The Game<br>
+        <h1>with Game PIN: {{quizpin}}</h1>
+      </div>
+
+      <span style="color: black;font-size: large;font-weight: bold;padding-left:22px;">{{playercount}}</span><br>
+      <span style="color: black;">Players:</span> 
+      <ion-button size="small" style="float: right;--background:black;position: -webkit-sticky;" shape="round" fill="outline"
+      routerLink="./adminplayquiz"  (click)="stopGetAllPlayer()" routerLinkActive="active">Load Game</ion-button>
+
+      <div >
+        <ion-grid>
+          <ion-row row-4>
+            <ion-col col-4 *ngFor="let player of playerlist;index as k" style="color: black;">
+              
+              <!-- <ion-card-header>
+                {{player.nickName}}
+              </ion-card-header> -->
+              <!-- <ion-card>
+           
+              </ion-card> -->
+              <ion-card-header>
+                {{player.nickName}}
+              </ion-card-header> 
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+      <!-- Si zes -->
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </form>
+</ion-content>

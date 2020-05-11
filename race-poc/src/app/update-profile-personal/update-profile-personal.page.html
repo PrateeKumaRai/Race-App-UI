@@ -1,0 +1,162 @@
+<ion-header class="ff">
+  <ion-toolbar color="bodycon">
+    <ion-buttons slot="start">
+      <ion-back-button color="dark" defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title><b style="color:black; text-align: center; size: 100px; ">&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;Update User Profile</b></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  body {font-family: Arial, Helvetica, sans-serif;}
+  * {box-sizing: border-box;}
+  
+  .input-container {
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+
+  .bottom-container {
+    text-align: center;
+    background-color: #0477A4;
+    border-radius: 0px 0px 4px 4px;
+  }
+  
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+  }
+  
+  
+  .icon {
+    padding: 10px;
+    background:linear-gradient(to bottom, #33ccff 0%, #00cc99 100%);
+    color: black;
+    min-width: 50px;
+    text-align: center;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+  }
+  
+  .div1 {
+    padding: 5px;
+    border: 1px solid #0477A4;
+  }
+  
+  .input-field:focus {
+    border: 2px solid #0477A4;
+  }
+  
+ 
+  .btn {
+    background:linear-gradient(to bottom, #33ccff 0%, #00cc99 100%);
+    color: black;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  
+  }
+  
+  
+  .btn1 {
+    background-color:white;
+    color:#D44638;
+    width: 100%;
+    padding: 15px 20px;
+    border: none;
+  
+    width: 100%;
+    opacity: 0.9;
+  }
+  
+  .btn:hover {
+    opacity: 1;
+  }
+  </style>
+</head>
+<ion-content class="ion-padding background">
+<br>
+<form (submit)="updateProfile()">
+  
+  <ion-item>
+    <ion-label><b style="color:black;font-size:100%">Employee Id:</b> </ion-label>
+    <ion-input  type="text" [(ngModel)]="account.empId" name="empId" placeholder="Employee Id"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label><b style="color:black;font-size:100%">User Id:</b> </ion-label>
+    <ion-input placeholder="User Id" type="text" [(ngModel)]="account.userName" name="userName"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label><b style="color:black;font-size:100%">Mobile:</b> </ion-label>
+    <ion-input placeholder="Mobile Number" type="text" [(ngModel)]="account.mobile" name="mobile"></ion-input>
+  </ion-item>
+
+  <!-- <div class="input-container">
+    <i class="fa fa-plus-square icon"></i>
+    <ion-input placeholder="Employee Id" type="text" [(ngModel)]="account.empId" name="empId"></ion-input>
+  </div> -->
+
+  <!-- <div class="input-container">
+    <i class="fa fa-plus-square icon"></i>
+    <ion-input placeholder="User Id" type="text" [(ngModel)]="account.userName" name="userName"></ion-input>
+  </div> -->
+
+  <!-- <div class="input-container">
+    <i class="fa fa-plus-square icon"></i>
+    <ion-input placeholder="Mobile Number" type="text" [(ngModel)]="account.mobile" name="mobile"></ion-input>
+  </div> -->
+  
+  <ion-item>
+    <ion-label><b style="color:black;font-size:100%">Current Address:</b> </ion-label>
+  </ion-item>
+  
+    <ion-item>
+      <ion-input placeholder="House Number" type="text" [(ngModel)]="account.houseNo" name="houseNo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input name="area" placeholder="Area" type="text" [(ngModel)]="account.area" ></ion-input>
+    </ion-item>
+    <ion-item>
+    <ion-input name="city" placeholder="City Name" type="text" [(ngModel)]="account.city"></ion-input>
+    </ion-item>
+      <ion-item>
+    <ion-input name="country" placeholder="Country Name" type="text" [(ngModel)]="account.country"></ion-input>
+      </ion-item>
+      <ion-item>
+    <ion-input name="zip" placeholder="Pin Code" type="text" [(ngModel)]="account.zip" ></ion-input>
+      </ion-item>
+    
+ 
+  <b style="color: red; font-size: 15px;">Note: All Fields are Mandatory.</b>
+ 
+  <div text-center margin-top>
+    <button class="btn">
+ <b style="font-size: large;">Update User Info</b> 
+</button> 
+  
+</div>
+
+</form>
+
+</ion-content>
+</html>

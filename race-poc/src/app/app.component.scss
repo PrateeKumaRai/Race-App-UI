@@ -1,0 +1,198 @@
+.avatar {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  .splash{
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #8ddbd1;;
+  }
+
+  .spinner{
+    width: 22vw;
+    height: 22vw;
+    background-color: #ffffff;
+    margin: 100px auto;
+    -webkit-animation: sk-rotatePlane 1.2s infinite ease-in-out;
+    animation: sk-rotatePlane 1.2s infinite ease-in-out;
+  }
+
+  @-webkit-keyframes sk-rotatePlane{
+    0%{-webkit-transform: perspective(120px)}
+    50%{-webkit-transform: perspective(120px) rotateY(180deg)}
+    100%{-webkit-transform: perspective(120px) rotateY(180deg) rotateX(180deg)}
+  }
+
+  @keyframes sk-rotatePlane{
+    0%{
+      transform: perspective(120px) rotateX(0deg) rotateY(odeg);
+      -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    }50%{
+      transform: perspective(120px) rotateX(-180deg) rotateY(odeg);
+      -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    }
+    0%{
+      transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+      -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179deg);
+    }
+  }
+
+  .ff{
+    background-color:rgb(64, 164, 211) ;
+  }
+  
+  // ion-content.background{
+    
+  //   --ion-background-color: linear-gradient(to bottom,#f1b7cd 0%,#fff 100%);
+  // }
+  ion-content.background{
+    
+    --ion-background-color: linear-gradient(to bottom,#b7f1e9 0%,#fff 100%);
+  }
+  ul {
+      list-style-type: none;
+      margin-left: 30;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333333;
+    }
+   
+  a{
+      text-decoration: none;
+  }
+  li a:hover {
+      background-color: #111111;
+    }
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 16px;
+      text-decoration: none;
+    }
+  li a:hover{
+      color: #e72d27;
+  }
+  
+  ion-title{
+    
+     
+      color: #131212;
+  }
+  
+  ion-select{
+      max-width: 90% ;
+  }
+  
+  .logoutBt1{
+    float:left;
+     
+     
+     
+   }
+   .logoutBt2{
+    float:left;
+    margin-top: 10px;
+    margin-left: 20px;
+     
+     
+   }
+  .logoutBt3{
+   float:right;
+    color: white;
+    margin-right: 20px;
+    
+    
+  }
+  .logoutBt4{
+    float:right;
+     color: white;
+     margin-top: 10px;
+     
+   }
+   ion-checkbox{
+     margin-left: 20px;
+   }
+   .toastAfterHeader{
+    
+    margin-top: 50px;
+    }
+  
+  
+    .btmSpace{
+      margin-top: 10px;
+     }
+  
+     
+     .button1 {
+         display: block;
+         width: 350px;
+         
+         max-width: 100%;
+         margin: 0 auto;
+         margin-bottom: 0;
+         overflow: hidden;
+         position: relative;
+         transform: translatez(0);
+         text-decoration: none;
+         box-sizing: border-box;
+         font-size: 20px;
+         font-weight: normal;
+         box-shadow: 0 9px 18px rgba(0,0,0,0.2);
+       }
+       
+       .instagram {
+         text-align: center;
+         border-radius: 50px;
+         padding: 8px;
+         color: white;
+         background: rgb(64, 164, 211);
+         transition: all 0.2s ease-out 0s;
+       }
+       
+       .gradient {
+         display: block;
+         position: absolute;
+         top: 0;
+         right: 0;
+         width: 100%;
+         height: 100%;
+         bottom: auto;
+         margin: auto;
+         z-index: -1;
+         background: radial-gradient(90px circle at top center, rgba(54, 126, 173, 0.541) 30%, rgba(255,255,255,0));
+         transition: all 0s ease-out 0s;
+         transform: translatex(-140px);
+         animation: 18s linear 0s infinite move;
+       }
+       
+       @keyframes move {
+         0% {
+           transform: translatex(-140px);
+         }
+         25% {
+           transform: translatex(140px);
+           opacity: 0.3;
+         }
+         50% {
+           transform: translatex(140px);
+           opacity: 1;
+           background: radial-gradient(90px circle at bottom center, rgba(54, 126, 173, 0.541) 30%, rgba(255,255,255,0));
+         }
+         75% {
+           transform: translatex(-140px);
+           opacity: 0.3;
+         }
+         100% {
+           opacity: 1;
+           transform: translatex(-140px);
+           background: radial-gradient(90px circle at top center, rgba(238,88,63,.5) 30%, rgba(255,255,255,0));
+         }
+       }

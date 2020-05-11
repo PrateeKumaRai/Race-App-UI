@@ -1,0 +1,59 @@
+<html>
+<head>
+
+ <style>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 10px;
+ 
+  padding: 5px;
+  
+}
+
+.grid-container > div {
+  background-color: #c2f3ec;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 25px;
+}
+
+@keyframes mymove {
+  50% {grid-column-gap: 100px;}
+}
+</style>
+
+  </head>
+<ion-header class="ff">
+  <ion-toolbar color="bodycon">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title width="800" height="50">
+      <div class="grid-container">
+        <div class="item1"><b>R</b></div>
+        <div class="item2"><b>A</b></div>
+        <div class="item3"><b>C</b></div>  
+        <div class="item4"><b>E</b></div>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding background">
+  <!-- <ion-card [disabled]="show" (click)="openQuiz(item.user.page)" *ngFor="let item of cardItems"> -->
+
+    <ion-card (click)="openQuiz(item.user.page)" *ngFor="let item of cardItems">
+<ion-item>
+  <ion-avatar item-start>
+    <img [src]="item.user.avatar">
+  </ion-avatar>
+  <h2>{{item.user.name}}</h2>
+</ion-item>
+</ion-card>
+<br>
+<div *ngIf="show">
+  <b style="color:black;font-size:90%">Please update your profile for better experience of services.</b>
+</div>
+</ion-content>
+</html>

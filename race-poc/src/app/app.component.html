@@ -1,0 +1,40 @@
+<ion-app>
+  <div *ngIf="showSplash" class="splash">
+    <div class="spinner">
+
+    </div>
+  </div>
+ 
+ 
+  <ion-menu  contentId="main">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title><img src="assets\icon\userlogo.jpg" alt="Avatar" class="avatar"> Welcome {{data}}
+          </ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding background">
+       
+          <ion-menu-toggle auto-hide="false" *ngFor="let page of appPages">
+            
+
+          <p *ngIf=" page.title == 'Update User Profile'" >
+              <ion-item (click)="updateProfile()"> <ion-icon color="success" slot="start" [name]="page.icon"></ion-icon>
+               
+                  {{page.title}}
+                </ion-item>
+           </p> 
+           
+            <p *ngIf=" page.title == 'Logout'" >
+              <ion-item (click)="logout()"> <ion-icon color="danger" slot="start" [name]="page.icon"></ion-icon>
+               
+                  {{page.title}}
+               </ion-item>
+           </p> 
+         </ion-menu-toggle>
+    
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main"></ion-router-outlet>
+
+</ion-app>

@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="bodycon">
+    <ion-buttons slot="start">
+      <ion-back-button color="dark" defaultHref="create"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Your Travel Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background">
+
+  <ion-card>
+
+    <ion-row>
+      <ion-title size="small"><b>EmpId:</b>{{data?.employee_id}}</ion-title>
+    </ion-row>
+    <ion-row>
+      <ion-title size="small"><b>Start Date:</b>{{data?.start_date}}</ion-title>
+    </ion-row>
+    <ion-row>
+      <ion-title size="small"><b>Return Date:</b>{{data?.return_date}}</ion-title>
+    </ion-row>
+    <ion-row>
+      <ion-title size="small"><b>Source Location:</b>{{data?.source_location}}</ion-title>
+    </ion-row>
+    <ion-row>
+      <ion-title size="small"><b>Destination Location:</b>{{data?.dest_location}}</ion-title>
+    </ion-row>
+    <ion-row>
+      <ion-title size="small"><b>Mobile Number:</b>{{data?.mob_num}}</ion-title>
+    </ion-row>
+
+    <ion-row>
+      <div>
+
+        <div *ngIf=data2>
+
+          <img [src]=data2>
+
+        </div>
+
+      </div>
+    </ion-row>
+  </ion-card>
+
+
+</ion-content>
